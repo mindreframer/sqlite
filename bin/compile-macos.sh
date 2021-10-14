@@ -28,8 +28,9 @@ gcc \
   -DSQLITE_INTROSPECTION_PRAGMAS=1 \
   -DSQLITE_LIKE_DOESNT_MATCH_BLOBS=1 \
   -DSQLITE_OMIT_DEPRECATED=1 \
-  -DSQLITE_THREADSAFE=1 \
+  -DSQLITE_THREADSAFE=0 \
   -DSQLITE_USE_URI=1 \
-  src/shell.c src/sqlite3.c -o dist/sqlite3-mac \
+  src/shell.c src/sqlite3.c -o dist/sqlite3-macos \
   -ldl -lz -lm -lreadline -lncurses
-chmod +x dist/sqlite3-mac
+chmod +x dist/sqlite3-macos
+ls -la dist/

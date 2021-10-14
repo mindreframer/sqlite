@@ -35,7 +35,7 @@ const flags = [
 class Generator extends GenBase {
   run() {
     this.genLinux();
-    this.genMac();
+    this.genMacos();
     this.genWindows();
   }
 
@@ -64,15 +64,15 @@ class Generator extends GenBase {
     this.push("ls -la dist/");
   }
 
-  genMac() {
-    let path = "bin/compile-mac.sh";
+  genMacos() {
+    let path = "bin/compile-macos.sh";
     this.lines = [];
-    this.macContent();
+    this.macosContent();
     fs.writeFileSync(path, this.content, "utf-8");
     fs.chmodSync(path, 0o755);
   }
 
-  macContent() {
+  macosContent() {
     this.push("#!/usr/bin/env bash");
     this.push("mkdir dist");
     this.push("gcc \\");
@@ -81,11 +81,11 @@ class Generator extends GenBase {
         this.push(`-${flag} \\`);
       });
 
-      this.push("src/shell.c src/sqlite3.c -o dist/sqlite3-mac \\");
+      this.push("src/shell.c src/sqlite3.c -o dist/sqlite3-macos \\");
       this.push("-ldl -lz -lm -lreadline -lncurses");
     });
 
-    this.push(`chmod +x dist/sqlite3-mac`);
+    this.push(`chmod +x dist/sqlite3-macos`);
     this.push("ls -la dist/");
   }
 
