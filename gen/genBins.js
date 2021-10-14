@@ -28,7 +28,7 @@ const flags = [
   "DSQLITE_INTROSPECTION_PRAGMAS=1",
   "DSQLITE_LIKE_DOESNT_MATCH_BLOBS=1",
   "DSQLITE_OMIT_DEPRECATED=1",
-  "DSQLITE_THREADSAFE=1",
+  "DSQLITE_THREADSAFE=0",
   "DSQLITE_USE_URI=1",
 ];
 
@@ -61,6 +61,7 @@ class Generator extends GenBase {
     });
 
     this.push(`chmod +x dist/sqlite3-ubuntu`);
+    this.push("ls -la dist/");
   }
 
   genMac() {
@@ -85,6 +86,7 @@ class Generator extends GenBase {
     });
 
     this.push(`chmod +x dist/sqlite3-mac`);
+    this.push("ls -la dist/");
   }
 
   genWindows() {
@@ -92,7 +94,6 @@ class Generator extends GenBase {
     this.lines = [];
     this.windowsContent();
     fs.writeFileSync(path, this.content, "utf-8");
-    // fs.chmodSync(path, 0o755);
   }
 
   windowsContent() {
