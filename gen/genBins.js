@@ -66,7 +66,7 @@ class Generator extends GenBase {
   genMac() {
     let path = "bin/compile-mac.sh";
     this.lines = [];
-    this.linuxContent();
+    this.macContent();
     fs.writeFileSync(path, this.content, "utf-8");
     fs.chmodSync(path, 0o755);
   }

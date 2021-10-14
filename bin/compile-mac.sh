@@ -30,6 +30,6 @@ gcc \
   -DSQLITE_OMIT_DEPRECATED=1 \
   -DSQLITE_THREADSAFE=1 \
   -DSQLITE_USE_URI=1 \
-  src/shell.c src/sqlite3.c -o dist/sqlite3-ubuntu \
+  src/shell.c src/sqlite3.c -o dist/sqlite3-mac \
   -ldl -lz -lm -lreadline -lncurses
-chmod +x dist/sqlite3-ubuntu
+chmod +x dist/sqlite3-mac
