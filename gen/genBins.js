@@ -1,5 +1,8 @@
 const fs = require("fs");
 const { GenBase } = require("./genbase");
+let difference = (arr1, arr2) => {
+  return arr1.filter((x) => !arr2.includes(x));
+};
 const flags = [
   "DALLOW_COVERING_INDEX_SCAN=1",
   "DENABLE_FTS3_PARENTHESIS=1",
@@ -31,6 +34,8 @@ const flags = [
   "DSQLITE_THREADSAFE=0",
   "DSQLITE_USE_URI=1",
 ];
+
+const winFlags = difference(flags, ["DHAVE_READLINE=1"]);
 
 class Generator extends GenBase {
   run() {
@@ -101,7 +106,7 @@ class Generator extends GenBase {
     this.push("mkdir dist");
     this.push("gcc \\");
     this.withIndent(() => {
-      flags.forEach((flag) => {
+      winFlags.forEach((flag) => {
         this.push(`-${flag} \\`);
       });
 
