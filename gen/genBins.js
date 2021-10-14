@@ -35,7 +35,7 @@ const flags = [
   "DSQLITE_USE_URI=1",
 ];
 
-const winFlags = difference(flags, ["DHAVE_READLINE=1"]);
+const winFlags = difference(flags, ["DHAVE_READLINE=1", "DSQLITE_HAVE_ZLIB=1"]);
 
 class Generator extends GenBase {
   run() {
