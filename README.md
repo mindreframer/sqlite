@@ -8,4 +8,4 @@ Builds and publishes SQLite shell for different OS:
 
 If you need SQLite for Mac M1 (ARM arch), you can easily do it with included bash script in the `bin/` folder!
 
-Latest release: [3.36.0](https://github.com/nalgeon/sqlite/releases/latest)
+Latest release: [3.38.5](https://github.com/nalgeon/sqlite/releases/latest)
